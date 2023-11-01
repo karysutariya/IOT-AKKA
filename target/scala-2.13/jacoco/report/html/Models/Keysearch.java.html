@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Keysearch.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">Models</a> &gt; <span class="el_source">Keysearch.java</span></div><h1>Keysearch.java</h1><pre class="source lang-java linenums">package Models;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+<span class="fc" id="L16">public class Keysearch {</span>
+    /**
+     * @author Kary Sutariya
+     * @param key is string
+     * @param cache contains results
+     * @return result in from redditpushshift api
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; getSearchResult(String key,HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; cache) throws IOException, InterruptedException, ParseException {
+        //getting the updated text from the columns
+<span class="fc" id="L28">        String search = key;</span>
+<span class="fc" id="L29">        ArrayList&lt;Reddit&gt; mainArray = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L30">        String temp = search;</span>
+<span class="pc bpc" id="L31" title="2 of 4 branches missed.">        if(temp == (null) || temp.equals(&quot;&quot;))</span>
+        {
+<span class="nc" id="L33">            mainArray.add(new Reddit(null,null, null));</span>
+        }
+        else
+        {
+<span class="fc" id="L37">            String msearch1 = temp.replace(&quot; &quot;,&quot;%20&quot;);</span>
+<span class="fc" id="L38">            var url = &quot;https://api.pushshift.io/reddit/search/submission/?q=&quot;+temp+&quot;&amp;sort=desc&amp;size=10&quot;;</span>
+<span class="fc" id="L39">            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();</span>
+<span class="fc" id="L40">            var client = HttpClient.newBuilder().build();</span>
+<span class="fc" id="L41">            HttpResponse&lt;String&gt; indexcall1 = client.send(request, HttpResponse.BodyHandlers.ofString());</span>
+<span class="fc" id="L42">            Object obj = new JSONParser().parse(String.valueOf(indexcall1.body()));</span>
+<span class="fc" id="L43">            JSONObject test = (JSONObject) obj;</span>
+<span class="fc" id="L44">            var data = (JSONArray)test.get(&quot;data&quot;);</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">            for(int i =0; i&lt;10; i++){</span>
+<span class="fc" id="L46">                var inner_post_data = (JSONObject) data.get(i);</span>
+<span class="fc" id="L47">                var author = inner_post_data.get(&quot;author&quot;);</span>
+<span class="fc" id="L48">                var title = inner_post_data.get(&quot;title&quot;);</span>
+<span class="fc" id="L49">                var reddit = inner_post_data.get(&quot;subreddit&quot;);</span>
+<span class="fc" id="L50">                mainArray.add(new Reddit(author.toString(),title.toString(), reddit.toString()));</span>
+            }
+<span class="fc" id="L52">            cache.put(temp,mainArray);</span>
+        }
+<span class="fc" id="L54">        return cache;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

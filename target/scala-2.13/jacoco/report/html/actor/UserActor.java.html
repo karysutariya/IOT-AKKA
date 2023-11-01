@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actor</a> &gt; <span class="el_source">UserActor.java</span></div><h1>UserActor.java</h1><pre class="source lang-java linenums">package actor;
+
+import Models.Keysearch;
+import Models.Reddit;
+import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import controllers.HomeController;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import play.libs.Json;
+
+import javax.naming.ldap.Control;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class UserActor extends AbstractActor {
+    private final ActorRef ws;
+    public static HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; cache;
+
+    /**
+     * @author Kary Sutariya
+     * @param wsOut is actrofRef
+     * @param cache is list of reddit from same category
+     */
+<span class="fc" id="L34">    public UserActor(final ActorRef wsOut, final HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; cache) {</span>
+<span class="fc" id="L35">        this.ws =  wsOut;</span>
+<span class="fc" id="L36">        this.cache = cache;</span>
+<span class="fc" id="L37">    }</span>
+
+    /**
+     * @author Kary Sutariya
+     * @param wsOut is actrofRef
+     * @param cache is list of reddit from same category
+     * @return UserActor
+     */
+    static public Props props(final ActorRef wsOut, final HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; cache) {
+<span class="fc" id="L46">        return Props.create(UserActor.class, wsOut, cache);</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @param msg is instance of TimeMessage class
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws ParseException
+     * @throws NullPointerException
+     */
+    private void sendTime(TimeMessage msg) throws IOException, InterruptedException, ParseException,NullPointerException{
+<span class="nc" id="L58">        final ObjectNode response = Json.newObject();</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        for(String key : cache.keySet())</span>
+        {
+<span class="nc" id="L61">            Keysearch keysearch  = new Keysearch();</span>
+<span class="nc" id="L62">            cache = keysearch.getSearchResult(key,cache);</span>
+
+<span class="nc" id="L64">            JSONObject parameterList = new JSONObject();</span>
+<span class="nc" id="L65">            int count = 0;</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">            for (Reddit j : cache.get(key))</span>
+            {
+<span class="nc" id="L68">                JSONObject parameter = new JSONObject();</span>
+<span class="nc" id="L69">                parameter.put(&quot;author&quot;, j.author);</span>
+<span class="nc" id="L70">                parameter.put(&quot;title&quot;, j.title);</span>
+<span class="nc" id="L71">                parameter.put(&quot;reddit&quot;, j.reddit);</span>
+
+<span class="nc" id="L73">                parameterList.put(count,parameter);</span>
+
+<span class="nc" id="L75">                count++;</span>
+<span class="nc" id="L76">            }</span>
+<span class="nc" id="L77">            response.put(key, String.valueOf(parameterList));</span>
+<span class="nc" id="L78">        }</span>
+<span class="nc" id="L79">        System.out.println(&quot;User&quot;+response);</span>
+<span class="nc" id="L80">        ws.tell(response, self());</span>
+<span class="nc" id="L81">    }</span>
+
+
+    static public class TimeMessage {
+        public final HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; message;
+
+        /**
+         * @author Kary Sutariya
+         * this is a constructor of the class
+         */
+<span class="nc" id="L91">        public TimeMessage() {</span>
+<span class="nc" id="L92">            this.message = cache;</span>
+<span class="nc" id="L93">        }</span>
+    }
+
+    @Override
+    public void preStart() {
+<span class="fc" id="L98">        context().actorSelection(&quot;/user/timeActor/&quot;)</span>
+<span class="fc" id="L99">                .tell(new TimeActor.RegisterMsg(), self());</span>
+<span class="fc" id="L100">    }</span>
+
+    @Override
+    public Receive createReceive() {
+<span class="fc" id="L104">        return receiveBuilder()</span>
+<span class="fc" id="L105">                .match(TimeMessage.class, this::sendTime)</span>
+<span class="fc" id="L106">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

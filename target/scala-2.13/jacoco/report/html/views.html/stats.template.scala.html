@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>stats.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">stats.template.scala</span></div><h1>stats.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+/*1.2*/import java.util
+/*2.2*/import java.util.stream.IntStream
+
+<span class="pc" id="L26">object stats extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[play.mvc.Http.Request,util.Map[String, Integer],util.Map[String, Long],play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*3.2*/(request: play.mvc.Http.Request,Words:util.Map[String,Integer],wordCount:util.Map[String,Long]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L30">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L34">Seq[Any](format.raw/*4.1*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L35">&quot;&quot;&quot;),format.raw/*5.1*/(&quot;&quot;&quot;&lt;html lang=&quot;en&quot;&gt;</span>
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;Search&lt;/title&gt;
+<span class="fc" id="L39">        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href='&quot;&quot;&quot;),_display_(/*9.55*/routes/*9.61*/.Assets.versioned(&quot;stylesheets/bootstrap.min.css&quot;)),format.raw/*9.111*/(&quot;&quot;&quot;' /&gt;</span>
+<span class="fc" id="L40">        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href='&quot;&quot;&quot;),_display_(/*10.55*/routes/*10.61*/.Assets.versioned(&quot;stylesheets/style.css&quot;)),format.raw/*10.103*/(&quot;&quot;&quot;' /&gt;</span>
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css&quot;&gt;
+<span class="fc" id="L42">        &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*12.46*/routes/*12.52*/.Assets.versioned(&quot;js/jquery-3.6.0.min.js&quot;)),format.raw/*12.95*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+<span class="fc" id="L43">        &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*13.46*/routes/*13.52*/.Assets.versioned(&quot;js/custom.js&quot;)),format.raw/*13.85*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+<span class="fc" id="L44">        &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*14.46*/routes/*14.52*/.Assets.versioned(&quot;js/bootstrap.min.js&quot;)),format.raw/*14.92*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+<span class="fc" id="L45">        &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*15.46*/routes/*15.52*/.Assets.versioned(&quot;javascripts/stats.js&quot;)),format.raw/*15.93*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+        &lt;script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'&gt;&lt;/script&gt;
+
+    &lt;/head&gt;
+<span class="fc" id="L49">    &lt;body data-ws-url=&quot;&quot;&quot;&quot;),_display_(/*19.25*/routes/*19.31*/.HomeController.ws4.webSocketURL(request)),format.raw/*19.72*/(&quot;&quot;&quot;&quot;&gt;</span>
+        &lt;h2 style=&quot;text-align:center&quot;&gt;Stats&lt;/h2&gt;
+        &lt;div style=&quot;margin-top:3%&quot;&gt;&lt;/div&gt;
+        &lt;form  class=&quot;example&quot; action=&quot;/&quot; method=&quot;GET&quot; style=&quot;margin:auto;max-width:300px&quot;&gt;
+            &lt;input type=&quot;text&quot; placeholder=&quot;Search........&quot; name=&quot;msearch&quot;&gt;
+            &lt;button type=&quot;submit&quot;&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;br&gt;
+        The most used words:
+
+        &lt;br&gt;
+        &lt;table style=&quot;margin: 3px&quot;&gt;
+            &lt;tr style=&quot;background-color: #7cc3a97d&quot;&gt;
+                &lt;th style=&quot;color: white&quot;&gt;Word&lt;/th&gt;
+<span class="fc" id="L64">                &quot;&quot;&quot;),_display_(/*34.18*/for((keys,value) &lt;- Words) yield /*34.44*/ {_display_(Seq[Any](format.raw/*34.46*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L65">                    &quot;&quot;&quot;),format.raw/*35.21*/(&quot;&quot;&quot;&lt;th style=&quot;color: white&quot;&gt;&quot;&quot;&quot;),_display_(/*35.47*/keys),format.raw/*35.51*/(&quot;&quot;&quot;&lt;/th&gt;&quot;&quot;&quot;)))}),format.raw/*35.57*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L66">            &quot;&quot;&quot;),format.raw/*36.13*/(&quot;&quot;&quot;&lt;/tr&gt;</span>
+
+            &lt;tr style=&quot;background-color: aliceblue&quot;&gt;
+                &lt;td style=&quot;padding: 1rem&quot;&gt;Count&lt;/td&gt;
+<span class="fc" id="L70">                &quot;&quot;&quot;),_display_(/*40.18*/for((keys,value) &lt;- Words) yield /*40.44*/ {_display_(Seq[Any](format.raw/*40.46*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L71">                    &quot;&quot;&quot;),format.raw/*41.21*/(&quot;&quot;&quot;&lt;td style=&quot;padding: 1rem&quot;&gt;&quot;&quot;&quot;),_display_(/*41.48*/value),format.raw/*41.53*/(&quot;&quot;&quot;&lt;/td&gt;&quot;&quot;&quot;)))}),format.raw/*41.59*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L72">            &quot;&quot;&quot;),format.raw/*42.13*/(&quot;&quot;&quot;&lt;/tr&gt;</span>
+        &lt;/table&gt;
+
+<span class="fc" id="L75">        &quot;&quot;&quot;),format.raw/*45.25*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L76">        &quot;&quot;&quot;),format.raw/*46.30*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L77">        &quot;&quot;&quot;),format.raw/*47.58*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L78">        &quot;&quot;&quot;),format.raw/*48.30*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L79">        &quot;&quot;&quot;),format.raw/*49.31*/(&quot;&quot;&quot;</span>
+<span class="fc" id="L80">        &quot;&quot;&quot;),format.raw/*50.9*/(&quot;&quot;&quot;The rest of the words:</span>
+
+        &lt;br&gt;
+        &lt;table style=&quot;margin: 10px&quot;&gt;
+            &lt;tr style=&quot;background-color: #F5DEB3&quot;&gt;
+                &lt;th style=&quot;color: white&quot;&gt;Word&lt;/th&gt;
+                &lt;th style=&quot;color: white&quot;&gt;Count&lt;/th&gt;
+<span class="fc" id="L87">            &quot;&quot;&quot;),_display_(/*57.14*/for((keys,value) &lt;- wordCount) yield /*57.44*/ {_display_(Seq[Any](format.raw/*57.46*/(&quot;&quot;&quot;</span>
+
+                &quot;&quot;&quot;),format.raw/*59.17*/(&quot;&quot;&quot;&lt;tr&gt;
+
+                    &lt;th&gt;&quot;&quot;&quot;),_display_(/*61.26*/keys),format.raw/*61.30*/(&quot;&quot;&quot;&lt;/th&gt;
+                    &lt;td&gt;&quot;&quot;&quot;),_display_(/*62.26*/value),format.raw/*62.31*/(&quot;&quot;&quot;&lt;/td&gt;
+
+                &lt;/tr&gt;
+
+<span class="fc" id="L96">                &lt;th style=&quot;color: white&quot;&gt;&quot;&quot;&quot;),_display_(/*66.43*/keys),format.raw/*66.47*/(&quot;&quot;&quot;&lt;/th&gt;&quot;&quot;&quot;)))}),format.raw/*66.53*/(&quot;&quot;&quot;</span>
+
+<span class="fc" id="L98">            &quot;&quot;&quot;),format.raw/*68.13*/(&quot;&quot;&quot;&lt;tr&gt;</span>
+
+
+        &lt;/table&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;&quot;&quot;&quot;))
+      }
+    }
+  }
+
+<span class="fc" id="L109">  def render(request:play.mvc.Http.Request,Words:util.Map[String, Integer],wordCount:util.Map[String, Long]): play.twirl.api.HtmlFormat.Appendable = apply(request,Words,wordCount)</span>
+
+<span class="nc" id="L111">  def f:((play.mvc.Http.Request,util.Map[String, Integer],util.Map[String, Long]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (request,Words,wordCount) =&gt; apply(request,Words,wordCount)</span>
+
+<span class="nc" id="L113">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/stats.scala.html
+                  HASH: 403f93656edc715e99db500d49764a408def0325
+                  MATRIX: 610-&gt;1|634-&gt;19|1036-&gt;54|1225-&gt;150|1252-&gt;151|1421-&gt;294|1435-&gt;300|1506-&gt;350|1592-&gt;409|1607-&gt;415|1671-&gt;457|1870-&gt;629|1885-&gt;635|1949-&gt;678|2033-&gt;735|2048-&gt;741|2102-&gt;774|2186-&gt;831|2201-&gt;837|2262-&gt;877|2346-&gt;934|2361-&gt;940|2423-&gt;981|2598-&gt;1129|2613-&gt;1135|2675-&gt;1176|3266-&gt;1740|3308-&gt;1766|3348-&gt;1768|3397-&gt;1789|3450-&gt;1815|3475-&gt;1819|3512-&gt;1825|3553-&gt;1838|3710-&gt;1968|3752-&gt;1994|3792-&gt;1996|3841-&gt;2017|3895-&gt;2044|3921-&gt;2049|3958-&gt;2055|3999-&gt;2068|4059-&gt;2116|4096-&gt;2146|4133-&gt;2204|4170-&gt;2234|4207-&gt;2265|4243-&gt;2274|4511-&gt;2515|4557-&gt;2545|4597-&gt;2547|4643-&gt;2565|4701-&gt;2596|4726-&gt;2600|4784-&gt;2631|4810-&gt;2636|4909-&gt;2708|4934-&gt;2712|4971-&gt;2718|5013-&gt;2732
+                  LINES: 23-&gt;1|24-&gt;2|29-&gt;3|34-&gt;4|35-&gt;5|39-&gt;9|39-&gt;9|39-&gt;9|40-&gt;10|40-&gt;10|40-&gt;10|42-&gt;12|42-&gt;12|42-&gt;12|43-&gt;13|43-&gt;13|43-&gt;13|44-&gt;14|44-&gt;14|44-&gt;14|45-&gt;15|45-&gt;15|45-&gt;15|49-&gt;19|49-&gt;19|49-&gt;19|64-&gt;34|64-&gt;34|64-&gt;34|65-&gt;35|65-&gt;35|65-&gt;35|65-&gt;35|66-&gt;36|70-&gt;40|70-&gt;40|70-&gt;40|71-&gt;41|71-&gt;41|71-&gt;41|71-&gt;41|72-&gt;42|75-&gt;45|76-&gt;46|77-&gt;47|78-&gt;48|79-&gt;49|80-&gt;50|87-&gt;57|87-&gt;57|87-&gt;57|89-&gt;59|91-&gt;61|91-&gt;61|92-&gt;62|92-&gt;62|96-&gt;66|96-&gt;66|96-&gt;66|98-&gt;68
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

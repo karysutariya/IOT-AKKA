@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\conf\application.conf,E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\conf\logback.xml,E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\conf\routes,E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\target\scala-2.13\classes\routes)[0m

@@ -1,0 +1,32 @@
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\Models\ProfileSearch.java:63:1: Double(double) in java.lang.Double has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0mnew Double(post_created)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\ProfileActor.java:76:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("date",get_post_date)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\ProfileActor.java:77:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("self_text",get_selftext)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\ProfileActor.java:78:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("subreddit",get_subreddit)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\ProfileActor.java:79:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("title",title)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\ProfileActor.java:81:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameterList.put(i,parameter)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\SubredditActor.java:59:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("author", j.author)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\SubredditActor.java:60:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("title", j.title)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\SubredditActor.java:61:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("reddit", j.reddit)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\SubredditActor.java:63:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameterList.put(count,parameter)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\TimeActor.java:51:1: startPeriodicTimer(java.lang.Object,java.lang.Object,scala.concurrent.duration.FiniteDuration) in akka.actor.TimerScheduler has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0mgetTimers().startPeriodicTimer[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\UserActor.java:69:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("author", j.author)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\UserActor.java:70:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("title", j.title)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\UserActor.java:71:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameter.put("reddit", j.reddit)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\actor\UserActor.java:73:1: unchecked call to put(K,V) as a member of the raw type java.util.HashMap[0m
+[0m[[0m[33mwarn[0m] [0m[0mparameterList.put(count,parameter)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\app\controllers\HomeController.java:111:1: Double(double) in java.lang.Double has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0mnew Double(created_utc)[0m

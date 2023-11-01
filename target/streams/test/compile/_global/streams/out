@@ -1,0 +1,56 @@
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\Models\ProfileSearchTest.java:31:1: unchecked method invocation: method thenReturn in interface org.mockito.stubbing.OngoingStubbing is applied to given types[0m
+[0m[[0m[33mwarn[0m] [0m[0m  required: T[0m
+[0m[[0m[33mwarn[0m] [0m[0m  found: java.net.http.HttpResponse[0m
+[0m[[0m[33mwarn[0m] [0m[0mwhen(obj.setpostmethod("bhargav99")).thenReturn(response)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\Models\ProfileSearchTest.java:31:1: unchecked conversion[0m
+[0m[[0m[33mwarn[0m] [0m[0m  required: T[0m
+[0m[[0m[33mwarn[0m] [0m[0m  found:    java.net.http.HttpResponse[0m
+[0m[[0m[33mwarn[0m] [0m[0mresponse[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\controllers\HomeControllerTest.java:66:1: unchecked method invocation: method thenReturn in interface org.mockito.stubbing.OngoingStubbing is applied to given types[0m
+[0m[[0m[33mwarn[0m] [0m[0m  required: T[0m
+[0m[[0m[33mwarn[0m] [0m[0m  found: java.net.http.HttpResponse[0m
+[0m[[0m[33mwarn[0m] [0m[0mwhen(obj.setprofilemethod("bhargav99")).thenReturn(response)[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\controllers\HomeControllerTest.java:66:1: unchecked conversion[0m
+[0m[[0m[33mwarn[0m] [0m[0m  required: T[0m
+[0m[[0m[33mwarn[0m] [0m[0m  found:    java.net.http.HttpResponse[0m
+[0m[[0m[33mwarn[0m] [0m[0mresponse[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\IndexHtml.java:131:1: cookie(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public Http.Cookie cookie(String name) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\IndexHtml.java:116:1: getQueryString(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public String getQueryString(String key) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\Profile.java:137:1: cookie(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public Http.Cookie cookie(String name) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\Profile.java:122:1: getQueryString(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public String getQueryString(String key) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\Subreddit.java:135:1: cookie(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public Http.Cookie cookie(String name) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\Subreddit.java:120:1: getQueryString(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public String getQueryString(String key) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\wordcount.java:134:1: cookie(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public Http.Cookie cookie(String name) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m
+[0m[[0m[33mwarn[0m] [0m[0mE:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\test\views\wordcount.java:119:1: getQueryString(java.lang.String) in play.mvc.Http.RequestHeader has been deprecated[0m
+[0m[[0m[33mwarn[0m] [0m[0m@Override[0m
+[0m[[0m[33mwarn[0m] [0m[0m            public String getQueryString(String key) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                return null;[0m
+[0m[[0m[33mwarn[0m] [0m[0m            }[0m

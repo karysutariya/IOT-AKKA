@@ -1,0 +1,74 @@
+@import java.util
+@import java.util.stream.IntStream
+@(request: play.mvc.Http.Request,Words:util.Map[String,Integer],wordCount:util.Map[String,Long])
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search</title>
+        <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' />
+        <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/style.css")' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type='text/javascript' src='@routes.Assets.versioned("js/jquery-3.6.0.min.js")'></script>
+        <script type='text/javascript' src='@routes.Assets.versioned("js/custom.js")'></script>
+        <script type='text/javascript' src='@routes.Assets.versioned("js/bootstrap.min.js")'></script>
+        <script type='text/javascript' src='@routes.Assets.versioned("javascripts/stats.js")'></script>
+        <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+
+    </head>
+    <body data-ws-url="@routes.HomeController.ws4.webSocketURL(request)">
+        <h2 style="text-align:center">Stats</h2>
+        <div style="margin-top:3%"></div>
+        <form  class="example" action="/" method="GET" style="margin:auto;max-width:300px">
+            <input type="text" placeholder="Search........" name="msearch">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+
+        <br>
+        The most used words:
+
+        <br>
+        <table style="margin: 3px">
+            <tr style="background-color: #7cc3a97d">
+                <th style="color: white">Word</th>
+                @for((keys,value) <- Words) {
+                    <th style="color: white">@keys</th>}
+            </tr>
+
+            <tr style="background-color: aliceblue">
+                <td style="padding: 1rem">Count</td>
+                @for((keys,value) <- Words) {
+                    <td style="padding: 1rem">@value</td>}
+            </tr>
+        </table>
+
+        @*            *@
+        @*            <div>*@
+        @*                <li> @keys - @value*@@* </li>*@
+        @*           </div>*@
+        @*            </br >*@
+        The rest of the words:
+
+        <br>
+        <table style="margin: 10px">
+            <tr style="background-color: #F5DEB3">
+                <th style="color: white">Word</th>
+                <th style="color: white">Count</th>
+            @for((keys,value) <- wordCount) {
+
+                <tr>
+
+                    <th>@keys</th>
+                    <td>@value</td>
+
+                </tr>
+
+                <th style="color: white">@keys</th>}
+
+            <tr>
+
+
+        </table>
+
+    </body>
+</html>

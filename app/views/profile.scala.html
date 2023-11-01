@@ -1,0 +1,74 @@
+@(request: play.mvc.Http.Request, search: String, profiles : List[Models.User], Arts: List[Models.Article] )
+
+<html lang="en">
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' />
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/style.css")' />
+    <script type='text/javascript' src='@routes.Assets.versioned("js/jquery-3.6.0.min.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("js/custom.js")'></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/profile.js")'></script>
+</head>
+
+<body data-ws-url="@routes.HomeController.ws2.webSocketURL(request)">
+<h2 style="text-align:center">Welcome to RedditLytics</h2>
+<button id="myButton" class="float-left submit-button" >Home</button>
+<div style="margin-top:3%"></div>
+<form class="example" action="/" method="GET" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit">click</button>
+</form>
+<br>
+<h2 style="text-align:left; margin-left:20%;">@search</h2>
+<br>
+
+@for(profile <- profiles){
+<table style="text-align:center;margin:auto;max-width:500px">
+    <tbody>
+    <tr>
+        <th scope="row" align="left">Name</th>
+        <td align="left">@profile.Name</td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Profile Name</th>
+        <td align="left">@profile.Profile</td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Verified User</th>
+        <td align="left">@profile.Verified</td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Reddit profile</th>
+        <td align="left"><a href="@profile.Reddit_profile" target="_blank">@profile.Reddit_profile</a></td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Subscribers</th>
+        <td align="left">@profile.Subscribers</td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Reddit user since</th>
+        <td align="left">@profile.Reddit_user</td>
+    </tr>
+    <tr>
+        <th scope="row" align="left">Total Karma</th>
+        <td align="left">@profile.Total_Karma</td>
+    </tr>
+    </tbody>
+</table>
+}
+
+<br>
+<h2 style="text-align:left; margin-left:20%;">Articles</h2>
+<br>
+
+<div id="time"> </div>
+
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/";
+    };
+</script>
+</body>
+</html>

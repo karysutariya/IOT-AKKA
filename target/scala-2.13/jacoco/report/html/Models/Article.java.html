@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Article.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">Models</a> &gt; <span class="el_source">Article.java</span></div><h1>Article.java</h1><pre class="source lang-java linenums">package Models;
+
+public class Article {
+    private String title;
+    private String selftext;
+    private String subreddit;
+    private String post_date;
+
+    /**
+     * @author Kary Sutariya
+     * @param title title of article
+     * @param selftext content of article
+     * @param subreddit subreddit category of article
+     * @param post_date date of post
+     */
+    public Article(String title, String selftext, String subreddit, String post_date)
+<span class="fc" id="L17">    {</span>
+<span class="fc" id="L18">        this.title = title;</span>
+<span class="fc" id="L19">        this.selftext = selftext;</span>
+<span class="fc" id="L20">        this.subreddit = subreddit;</span>
+<span class="fc" id="L21">        this.post_date = post_date;</span>
+<span class="fc" id="L22">    }</span>
+
+    /**
+     * @author Kary Sutariya
+     * @return title
+     */
+    public String get_title()
+    {
+<span class="fc" id="L30">        return title;</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @return selftext
+     */
+    public String get_selftext()
+    {
+<span class="fc" id="L39">        return selftext;</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @return subreddit
+     */
+    public String get_subreddit()
+    {
+<span class="fc" id="L48">        return subreddit;</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @return post_date
+     */
+    public String get_post_date()
+    {
+<span class="fc" id="L57">        return post_date;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

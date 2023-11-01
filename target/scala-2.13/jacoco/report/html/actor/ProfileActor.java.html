@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProfileActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actor</a> &gt; <span class="el_source">ProfileActor.java</span></div><h1>ProfileActor.java</h1><pre class="source lang-java linenums">package actor;
+
+import Models.Article;
+import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import play.libs.Json;
+
+import java.io.IOException;
+import java.util.List;
+
+public class ProfileActor extends AbstractActor {
+    private final ActorRef ws;
+    public static List&lt;Article&gt; Main_Art;
+
+    /**
+     * @author Kary Sutariya
+     * @param wsOut is actrofRef
+     * @param Main_Art is list of articles of one author
+     */
+<span class="fc" id="L25">    public ProfileActor(final ActorRef wsOut, final List&lt;Article&gt; Main_Art) {</span>
+<span class="fc" id="L26">        ws =  wsOut;</span>
+<span class="fc" id="L27">        this.Main_Art = Main_Art;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * @author Kary Sutariya
+     * @param wsOut is actrofRef
+     * @param Main_Art is list of articles of one author
+     * @return ProfileActor
+     */
+    static public Props props(final ActorRef wsOut,  final List&lt;Article&gt; Main_Art) {
+<span class="fc" id="L37">        return Props.create(ProfileActor.class, wsOut, Main_Art);</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @param msg is instance of TimeMessage class
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws ParseException
+     * @throws NullPointerException
+     */
+    private void sendTime(TimeMessage msg) {
+<span class="nc" id="L49">        final ObjectNode response = Json.newObject();</span>
+<span class="nc" id="L50">        JSONObject parameterList = new JSONObject();</span>
+<span class="nc" id="L51">        int i = 0;</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        for(Article key : msg.message)</span>
+        {
+<span class="nc" id="L54">            JSONObject parameter = new JSONObject();</span>
+<span class="nc" id="L55">            String title = key.get_title();</span>
+<span class="nc" id="L56">            String get_subreddit = key.get_subreddit();</span>
+<span class="nc" id="L57">            String get_selftext = key.get_selftext();</span>
+<span class="nc" id="L58">            String get_post_date = key.get_post_date();</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">            if (title == null)</span>
+            {
+<span class="nc" id="L61">                title = &quot;&quot;;</span>
+            }
+<span class="nc bnc" id="L63" title="All 2 branches missed.">            if (get_subreddit == null)</span>
+            {
+<span class="nc" id="L65">                get_subreddit = &quot;&quot;;</span>
+            }
+<span class="nc bnc" id="L67" title="All 2 branches missed.">            if (get_selftext == null)</span>
+            {
+<span class="nc" id="L69">                get_selftext = &quot;&quot;;</span>
+            }
+<span class="nc bnc" id="L71" title="All 2 branches missed.">            if (get_post_date == null)</span>
+            {
+<span class="nc" id="L73">                get_post_date = &quot;&quot;;</span>
+            }
+
+<span class="nc" id="L76">            parameter.put(&quot;date&quot;,get_post_date);</span>
+<span class="nc" id="L77">            parameter.put(&quot;self_text&quot;,get_selftext);</span>
+<span class="nc" id="L78">            parameter.put(&quot;subreddit&quot;,get_subreddit);</span>
+<span class="nc" id="L79">            parameter.put(&quot;title&quot;,title);</span>
+
+<span class="nc" id="L81">            parameterList.put(i,parameter);</span>
+<span class="nc" id="L82">            i = i +1;</span>
+
+<span class="nc" id="L84">        }</span>
+
+<span class="nc" id="L86">        response.put(&quot;time&quot;, String.valueOf(parameterList));</span>
+<span class="nc" id="L87">        System.out.println(&quot;Index&quot;+response);</span>
+<span class="nc" id="L88">        ws.tell(response, self());</span>
+<span class="nc" id="L89">    }</span>
+
+    static public class TimeMessage {
+        public final List&lt;Article&gt; message;
+
+        /**
+         * @author Kary Sutariya
+         * this is a constructor of the class
+         */
+<span class="nc" id="L98">        public TimeMessage() {</span>
+<span class="nc" id="L99">            message = Main_Art;</span>
+<span class="nc" id="L100">        }</span>
+    }
+
+    @Override
+    public void preStart() {
+<span class="fc" id="L105">        context().actorSelection(&quot;/user/timeActor/&quot;)</span>
+<span class="fc" id="L106">                .tell(new TimeActor.RegisterMsg_pro(), self());</span>
+<span class="fc" id="L107">    }</span>
+
+    @Override
+    public Receive createReceive() {
+<span class="fc" id="L111">        return receiveBuilder()</span>
+<span class="fc" id="L112">                .match(TimeMessage.class, this::sendTime)</span>
+<span class="fc" id="L113">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

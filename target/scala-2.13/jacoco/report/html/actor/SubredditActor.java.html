@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubredditActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actor</a> &gt; <span class="el_source">SubredditActor.java</span></div><h1>SubredditActor.java</h1><pre class="source lang-java linenums">package actor;
+
+import Models.Reddit;
+import Models.SubredditSearch;
+import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
+import play.libs.Json;
+
+import java.io.IOException;
+import java.util.List;
+
+public class SubredditActor extends AbstractActor {
+    private final ActorRef ws;
+    public static List&lt;Reddit&gt; subArr;
+
+    /**
+     * @author bhargav
+     * @param ws is actrofRef
+     * @param subArr is information of particular subbreddit
+     */
+<span class="fc" id="L25">    public SubredditActor(final ActorRef ws, final List&lt;Reddit&gt; subArr) {</span>
+<span class="fc" id="L26">        this.ws = ws;</span>
+<span class="fc" id="L27">        this.subArr = subArr;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * @author bhargav
+     * @param ws is actrofRef
+     * @param subArr is information of particular subbreddit
+     * @return SubredditActor
+     */
+    static public Props props(final ActorRef ws, final List&lt;Reddit&gt; subArr) {
+<span class="fc" id="L37">        return  Props.create(SubredditActor.class, ws, subArr);</span>
+    }
+
+    /**
+     * @author bhargav
+     * @param msg is instance of TimeMessage class
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws ParseException
+     * @throws NullPointerException
+     */
+    private void sendTime(TimeMessage msg) throws IOException, InterruptedException, ParseException,NullPointerException{
+<span class="nc" id="L49">        System.out.println(&quot;Actor called&quot;);</span>
+<span class="nc" id="L50">        final ObjectNode response = Json.newObject();</span>
+<span class="nc" id="L51">        SubredditSearch subredditSearch = new SubredditSearch();</span>
+<span class="nc" id="L52">        subArr = subredditSearch.getSubredditSearch(msg.message.get(0).getReddit());</span>
+
+<span class="nc" id="L54">        JSONObject parameterList = new JSONObject();</span>
+<span class="nc" id="L55">        int count = 0;</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        for (Reddit j : subArr )</span>
+        {
+<span class="nc" id="L58">            JSONObject parameter = new JSONObject();</span>
+<span class="nc" id="L59">            parameter.put(&quot;author&quot;, j.author);</span>
+<span class="nc" id="L60">            parameter.put(&quot;title&quot;, j.title);</span>
+<span class="nc" id="L61">            parameter.put(&quot;reddit&quot;, j.reddit);</span>
+
+<span class="nc" id="L63">            parameterList.put(count,parameter);</span>
+<span class="nc" id="L64">            count++;</span>
+<span class="nc" id="L65">        }</span>
+<span class="nc" id="L66">        response.put(&quot;subreddit&quot;,String.valueOf(parameterList));</span>
+<span class="nc" id="L67">        System.out.println(&quot;Subreddit&quot;+response);</span>
+<span class="nc" id="L68">        ws.tell(response, self());</span>
+<span class="nc" id="L69">    }</span>
+    static public class TimeMessage {
+        public final List&lt;Reddit&gt; message;
+        /**
+         * @author bhargav
+         * this is a constructor of the class
+         */
+<span class="nc" id="L76">        public TimeMessage() {</span>
+<span class="nc" id="L77">            message = subArr;</span>
+<span class="nc" id="L78">        }</span>
+    }
+
+    @Override
+    public void preStart() {
+<span class="fc" id="L83">        context().actorSelection(&quot;/user/timeActor/&quot;)</span>
+<span class="fc" id="L84">                .tell(new TimeActor.RegisterMsg_sub(), self());</span>
+<span class="fc" id="L85">    }</span>
+
+    @Override
+    public Receive createReceive() {
+<span class="fc" id="L89">        return receiveBuilder()</span>
+<span class="fc" id="L90">                .match(TimeMessage.class, this::sendTime)</span>
+<span class="fc" id="L91">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

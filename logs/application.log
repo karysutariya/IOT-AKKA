@@ -1,0 +1,205 @@
+2021-12-06 21:28:52,778 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:28:52.768321600Z
+2021-12-06 21:28:53,264 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:28:53,927 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:28:54,270 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T02:28:54.248864300Z after 2s.
+2021-12-06 21:30:58,563 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:30:58.547089400Z
+2021-12-06 21:30:59,132 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:30:59,839 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:31:00,144 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:31:00,153 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:31:00,217 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T02:31:00.197026600Z after 2s.
+2021-12-06 21:32:33,639 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:32:33.628949400Z
+2021-12-06 21:32:34,175 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:32:36,073 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:32:36.059580400Z after 3s.
+2021-12-06 21:32:36,487 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:32:36.487080300Z
+2021-12-06 21:32:36,490 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:32:37,646 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:32:37.646990800Z after 1s.
+2021-12-06 21:32:37,885 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:32:37.885037200Z
+2021-12-06 21:32:37,890 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:32:38,258 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T02:32:38.258228700Z after 1s.
+2021-12-06 21:33:18,504 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:33:18.494113500Z
+2021-12-06 21:33:18,978 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:33:19,673 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:33:19,957 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:33:19,967 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:33:20,421 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T02:33:20.208846500Z after 2s.
+2021-12-06 21:35:44,602 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:35:44.589775700Z
+2021-12-06 21:35:45,098 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:35:45,740 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:35:45,967 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:35:45,967 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:35:46,040 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T02:35:46.023867900Z after 2s.
+2021-12-06 21:43:26,615 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - ApplicationTimer demo: Starting application at 2021-12-07T02:43:26.602333500Z
+2021-12-06 21:43:26,667 [WARN] from play.filters.headers.SecurityHeadersConfig in play-dev-mode-akka.actor.default-dispatcher-10 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:43:26,692 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-10 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+    play.filters.csp.CSPFilter
+
+2021-12-06 21:43:27,056 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-10 - Application started (Dev) (no global state)
+2021-12-06 21:44:26,830 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-shutdown-hook-1 - Stopping Akka HTTP server...
+2021-12-06 21:44:26,877 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-2 - Terminating server binding for /0:0:0:0:0:0:0:0:9000
+2021-12-06 21:44:28,236 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:44:28.049358900Z after 62s.
+2021-12-06 21:44:28,377 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-akka.actor.internal-dispatcher-8 - Running provided shutdown stop hooks
+2021-12-06 21:49:41,604 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:49:41.589362300Z
+2021-12-06 21:49:42,214 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:49:42,636 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:49:42.620539Z after 1s.
+2021-12-06 21:52:42,127 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:52:42.111673Z
+2021-12-06 21:52:42,642 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:52:43,049 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T02:52:43.033486200Z after 1s.
+2021-12-06 21:52:43,549 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:52:43.549068400Z
+2021-12-06 21:52:43,549 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:52:43,924 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:52:44,220 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:52:44.220896400Z after 1s.
+2021-12-06 21:52:44,486 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:52:44.486500500Z
+2021-12-06 21:52:44,486 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:52:44,517 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:52:44,533 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T02:52:44.533374200Z after 0s.
+2021-12-06 21:52:44,752 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:52:44.752108800Z
+2021-12-06 21:52:44,752 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:52:47,493 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:52:47.493286100Z after 3s.
+2021-12-06 21:52:47,758 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:52:47.758892800Z
+2021-12-06 21:52:47,774 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:52:47,805 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:52:47,821 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T02:52:47.821388500Z after 0s.
+2021-12-06 21:55:24,396 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T02:55:24.365067300Z
+2021-12-06 21:55:25,052 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 21:55:25,802 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:55:26,146 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:55:26,161 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 21:55:26,224 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T02:55:26.208689400Z after 2s.
+2021-12-06 22:12:40,316 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:12:40.300626700Z
+2021-12-06 22:12:40,831 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:12:41,409 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:12:41,659 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:12:41,675 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:12:41,738 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:12:41.722404800Z after 1s.
+2021-12-06 22:12:42,097 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:12:42.097376Z
+2021-12-06 22:12:42,097 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:12:42,159 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:12:42,175 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:12:42.175495200Z after 0s.
+2021-12-06 22:12:42,722 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:12:42.722299300Z
+2021-12-06 22:12:42,722 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:12:42,769 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:12:42,769 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:12:42.769169Z after 0s.
+2021-12-06 22:12:43,066 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:12:43.066024600Z
+2021-12-06 22:12:43,066 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:12:44,253 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T03:12:44.253459Z after 1s.
+2021-12-06 22:12:44,456 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:12:44.456553800Z
+2021-12-06 22:12:44,456 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:12:44,487 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:12:44,487 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:12:44.487799Z after 0s.
+2021-12-06 22:13:18,240 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:13:18.225360900Z
+2021-12-06 22:13:18,287 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:13:19,069 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:13:19.053430200Z after 1s.
+2021-12-06 22:13:19,397 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:13:19.397148200Z
+2021-12-06 22:13:19,397 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:13:19,475 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:13:19.475268700Z after 0s.
+2021-12-06 22:13:19,678 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:13:19.678379500Z
+2021-12-06 22:13:19,694 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:13:20,006 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:13:20.006483500Z after 1s.
+2021-12-06 22:13:22,678 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:13:22.678171100Z
+2021-12-06 22:13:22,678 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:13:22,693 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:13:22.693792Z after 0s.
+2021-12-06 22:16:03,863 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:03.847412900Z
+2021-12-06 22:16:03,909 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:04,862 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:04.847341800Z after 1s.
+2021-12-06 22:16:05,331 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:05.331682400Z
+2021-12-06 22:16:05,347 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:05,456 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:05.456674100Z after 0s.
+2021-12-06 22:16:05,972 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:05.972263500Z
+2021-12-06 22:16:05,987 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:06,315 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:06.315998800Z after 1s.
+2021-12-06 22:16:08,847 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:08.847060400Z
+2021-12-06 22:16:08,847 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:08,878 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:08.878307Z after 0s.
+2021-12-06 22:16:09,175 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:09.175162300Z
+2021-12-06 22:16:09,190 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:09,565 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:16:09,846 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:16:09,846 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:16:09,878 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:09.878237Z after 0s.
+2021-12-06 22:16:10,268 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:10.268834900Z
+2021-12-06 22:16:10,268 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:10,346 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:16:10,346 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:10.346954700Z after 0s.
+2021-12-06 22:16:10,612 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:10.612559300Z
+2021-12-06 22:16:10,628 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:10,643 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:16:10,659 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:10.659431400Z after 0s.
+2021-12-06 22:16:10,878 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:10.878168800Z
+2021-12-06 22:16:10,893 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:11,065 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:11.065653900Z after 1s.
+2021-12-06 22:16:11,440 [INFO] from application in main - ApplicationTimer demo: Starting application at 2021-12-07T03:16:11.440626900Z
+2021-12-06 22:16:11,440 [WARN] from play.filters.headers.SecurityHeadersConfig in main - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:16:11,471 [WARN] from play.filters.hosts.AllowedHostsFilter in main - Host not allowed: localhost
+2021-12-06 22:16:11,487 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T03:16:11.487500300Z after 0s.
+2021-12-06 22:57:51,566 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:57:51.551360600Z
+2021-12-06 22:57:52,395 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:57:56,624 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:57:56.597838100Z after 5s.
+2021-12-06 22:57:57,805 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:57:57.805952700Z
+2021-12-06 22:57:57,821 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:03,416 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:03.416675900Z after 6s.
+2021-12-06 22:58:05,679 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:05.679376300Z
+2021-12-06 22:58:05,700 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:06,236 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:06.236489700Z after 1s.
+2021-12-06 22:58:06,548 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:06.548967400Z
+2021-12-06 22:58:06,548 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:07,764 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 22:58:08,480 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 22:58:08,489 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 22:58:08,583 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:08.582440500Z after 2s.
+2021-12-06 22:58:09,824 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:09.824592600Z
+2021-12-06 22:58:09,830 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:09,945 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 22:58:09,959 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:09.959516100Z after 0s.
+2021-12-06 22:58:10,422 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:10.422250200Z
+2021-12-06 22:58:10,425 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:10,467 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 22:58:10,491 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:10.491209700Z after 0s.
+2021-12-06 22:58:10,872 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:10.872992Z
+2021-12-06 22:58:10,874 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:11,219 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:11.219793500Z after 1s.
+2021-12-06 22:58:11,597 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:11.597575400Z
+2021-12-06 22:58:11,602 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:11,632 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 22:58:11,643 [INFO] from application in application-akka.actor.internal-dispatcher-3 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:11.643549100Z after 0s.
+2021-12-06 22:58:11,868 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T03:58:11.868425600Z
+2021-12-06 22:58:11,871 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 22:58:11,919 [INFO] from application in application-akka.actor.internal-dispatcher-6 - ApplicationTimer demo: Stopping application at 2021-12-07T03:58:11.919390400Z after 0s.
+2021-12-06 23:24:53,398 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:53.393782400Z
+2021-12-06 23:24:53,724 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:54,837 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:54.824455200Z after 1s.
+2021-12-06 23:24:55,051 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:55.051847900Z
+2021-12-06 23:24:55,054 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:55,660 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:55.660284600Z after 0s.
+2021-12-06 23:24:55,900 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:55.900640900Z
+2021-12-06 23:24:55,902 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:56,281 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:56.281153400Z after 1s.
+2021-12-06 23:24:56,422 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:56.422771Z
+2021-12-06 23:24:56,424 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:56,592 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 23:24:56,685 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 23:24:56,688 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 23:24:56,698 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:56.698036100Z after 0s.
+2021-12-06 23:24:56,807 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:56.807742300Z
+2021-12-06 23:24:56,809 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:56,839 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 23:24:56,841 [INFO] from application in application-akka.actor.internal-dispatcher-4 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:56.841651400Z after 0s.
+2021-12-06 23:24:56,969 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:56.969311300Z
+2021-12-06 23:24:56,971 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:56,985 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 23:24:56,991 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:56.991250600Z after 0s.
+2021-12-06 23:24:57,098 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:57.098473500Z
+2021-12-06 23:24:57,100 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:57,172 [INFO] from application in application-akka.actor.internal-dispatcher-5 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:57.172298Z after 0s.
+2021-12-06 23:24:57,274 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:57.274027800Z
+2021-12-06 23:24:57,281 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:57,294 [WARN] from play.filters.hosts.AllowedHostsFilter in pool-1-thread-1 - Host not allowed: localhost
+2021-12-06 23:24:57,298 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:57.298960600Z after 0s.
+2021-12-06 23:24:57,431 [INFO] from application in pool-1-thread-1 - ApplicationTimer demo: Starting application at 2021-12-07T04:24:57.431604800Z
+2021-12-06 23:24:57,432 [WARN] from play.filters.headers.SecurityHeadersConfig in pool-1-thread-1 - play.filters.headers.contentSecurityPolicy is deprecated in 2.7.0.  Please use play.filters.csp.CSPFilter instead.
+2021-12-06 23:24:57,441 [INFO] from application in application-akka.actor.internal-dispatcher-2 - ApplicationTimer demo: Stopping application at 2021-12-07T04:24:57.441578600Z after 0s.

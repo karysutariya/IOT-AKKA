@@ -1,0 +1,142 @@
+[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector(-Djacoco-agent.destfile=E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\target\scala-2.13\jacoco\data\jacoco.exec)[0m
+[0m[[0m[0mdebug[0m] [0m[0mForking tests - parallelism = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreate a single-thread test executor[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunner for org.scalatest.tools.Framework produced 0 initial tasks for 0 tests.[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunner for com.novocode.junit.JUnitFramework produced 16 initial tasks for 16 tests.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Models.ProfileSearchTest, sbt.ForkMain$AnnotatedFingerscan@787865e8, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mProfileSearchTest[0m.[36mtestgetuser[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mProfileSearchTest[0m.[36mtestgetuser[0m finished, took 4.252 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mProfileSearchTest[0m.[36mAPIMOCK[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mProfileSearchTest[0m.[36mAPIMOCK[0m finished, took 0.796 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mProfileSearchTest[0m.[36mtestsetpost[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mProfileSearchTest[0m.[36mtestsetpost[0m finished, took 0.615 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 5.671s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(controllers.HomeControllerTest, sbt.ForkMain$AnnotatedFingerscan@7dd4c18f, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestIndex[0m finished, took 0.408 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestcount[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestcount[0m finished, took 0.152 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestProfile[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestProfile[0m finished, took 0.143 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mAPIMOCK[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mAPIMOCK[0m finished, took 0.19 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestSubreddit[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest controllers.[33mHomeControllerTest[0m.[36mtestSubreddit[0m finished, took 0.118 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 5 total, 1.011s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 5 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Models.UsersTest, sbt.ForkMain$AnnotatedFingerscan@14813f3c, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mUsersTest[0m.[36mtest1[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mUsersTest[0m.[36mtest1[0m finished, took 0.137 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.138s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Models.ArticleTest, sbt.ForkMain$AnnotatedFingerscan@44f8bd1f, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mArticleTest[0m.[36mtest1[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mArticleTest[0m.[36mtest1[0m finished, took 0.001 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.001s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Actor.SubredditActorTest, sbt.ForkMain$AnnotatedFingerscan@3e8f7e94, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Actor.[33mSubredditActorTest[0m.[36mtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Actor.[33mSubredditActorTest[0m.[36mtest[0m finished, took 0.052 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.118s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(views.IndexHtml, sbt.ForkMain$AnnotatedFingerscan@1b6453fb, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest views.[33mIndexHtml[0m.[36mrenderTemplate1[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest views.[33mIndexHtml[0m.[36mrenderTemplate1[0m finished, took 0.033 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.034s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Models.RedditTest, sbt.ForkMain$AnnotatedFingerscan@5ec08402, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mRedditTest[0m.[36mtest1[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mRedditTest[0m.[36mtest1[0m finished, took 0.0 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.001s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(services.AtomicCounterTest, sbt.ForkMain$AnnotatedFingerscan@7589c985, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest services.[33mAtomicCounterTest[0m.[36mtestnextCount[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest services.[33mAtomicCounterTest[0m.[36mtestnextCount[0m finished, took 0.001 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.001s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(views.Subreddit, sbt.ForkMain$AnnotatedFingerscan@15c966a8, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest views.[33mSubreddit[0m.[36mrenderTemplate[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest views.[33mSubreddit[0m.[36mrenderTemplate[0m finished, took 0.006 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.008s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(views.wordcount, sbt.ForkMain$AnnotatedFingerscan@5ca2de79, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest views.[33mwordcount[0m.[36mrenderTemplate[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest views.[33mwordcount[0m.[36mrenderTemplate[0m finished, took 0.012 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.013s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Models.KeysearchTest, sbt.ForkMain$AnnotatedFingerscan@40788adf, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mKeysearchTest[0m.[36mtestgetSearchResult[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mKeysearchTest[0m.[36mtestgetSearchResult[0m finished, took 0.274 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mKeysearchTest[0m.[36mAPIMOCK[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mKeysearchTest[0m.[36mAPIMOCK[0m finished, took 0.018 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.293s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Actor.UserActorTest, sbt.ForkMain$AnnotatedFingerscan@707e6247, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Actor.[33mUserActorTest[0m.[36mtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Actor.[33mUserActorTest[0m.[36mtest[0m finished, took 0.004 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.054s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Actor.StatsActorTest, sbt.ForkMain$AnnotatedFingerscan@6322d29e, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Actor.[33mStatsActorTest[0m.[36mtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Actor.[33mStatsActorTest[0m.[36mtest[0m finished, took 0.002 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.042s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(views.Profile, sbt.ForkMain$AnnotatedFingerscan@31bc3daf, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest views.[33mProfile[0m.[36mrenderTemplate[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest views.[33mProfile[0m.[36mrenderTemplate[0m finished, took 0.007 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.007s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Actor.ProfileActorTest, sbt.ForkMain$AnnotatedFingerscan@66c2f405, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Actor.[33mProfileActorTest[0m.[36mtest[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Actor.[33mProfileActorTest[0m.[36mtest[0m finished, took 0.001 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Actor.[33mProfileActorTest[0m.[36mtest1[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Actor.[33mProfileActorTest[0m.[36mtest1[0m finished, took 0.0 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 2 total, 0.081s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 2 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(Models.SubredditSearchTest, sbt.ForkMain$AnnotatedFingerscan@64694c9, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest Models.[33mSubredditSearchTest[0m.[36mgetSubredditSearch[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest Models.[33mSubredditSearchTest[0m.[36mgetSubredditSearch[0m finished, took 2.081 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 2.082s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0minfo[0m] [0m[0mScalaTest[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 11 seconds, 414 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 0, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 0, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33mNo tests were executed.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mSummary for JUnit not available.[0m
+[0m[[0m[0minfo[0m] [0m[0mPassed: Total 24, Failed 0, Errors 0, Passed 24[0m
+[0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.ProfileSearchTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	controllers.HomeControllerTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.UsersTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.ArticleTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Actor.SubredditActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	views.IndexHtml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.RedditTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	services.AtomicCounterTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	views.Subreddit[0m
+[0m[[0m[0mdebug[0m] [0m[0m	views.wordcount[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.KeysearchTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Actor.UserActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Actor.StatsActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	views.Profile[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Actor.ProfileActorTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.SubredditSearchTest[0m

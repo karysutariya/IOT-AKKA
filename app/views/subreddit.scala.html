@@ -1,0 +1,29 @@
+@(request: play.mvc.Http.Request,subname:String,Reds: List[Models.Reddit])
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' />
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/style.css")' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type='text/javascript' src='@routes.Assets.versioned("js/jquery-3.6.0.min.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("js/custom.js")'></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/subreddit.js")'></script>
+</head>
+
+<body  data-ws-url="@routes.HomeController.ws3.webSocketURL(request)">
+<h2 style="text-align:center">Welcome to RedditLytics</h2>
+<div style="margin-top:3%"></div>
+<form class="example" action="/" method="GET" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<br>
+
+<h2 style="text-align:left; margin-left:20%;">@subname</h2>
+    <div id="time"> </div>
+    <br>
+
+</body>
+</html>

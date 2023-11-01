@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HomeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">controllers</a> &gt; <span class="el_source">HomeController.java</span></div><h1>HomeController.java</h1><pre class="source lang-java linenums">package controllers;
+
+import Models.*;
+
+import actor.*;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import play.libs.streams.ActorFlow;
+import play.mvc.*;
+
+import views.html.*;
+
+import javax.inject.Inject;
+import play.mvc.Http;
+import akka.actor.*;
+import akka.stream.*;
+
+import java.io.IOException;
+import java.util.*;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.regex.Pattern;
+
+import static java.util.Comparator.reverseOrder;
+import static java.util.function.Function.identity;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingByConcurrent;
+
+/**
+ * This controller contains an action to handle HTTP requests
+ * to the application's home page.
+ */
+public class HomeController extends Controller {
+
+    private final ActorSystem actorSystem;
+    private final Materializer materializer;
+    public static String search;
+
+<span class="fc" id="L46">    public static HashMap&lt;String, ArrayList&lt;Reddit&gt;&gt; cache = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L47">    public static ArrayList&lt;String&gt; queryHistory = new ArrayList&lt;&gt;();</span>
+
+    public static String Pro_Search;
+<span class="fc" id="L50">    public static List&lt;Article&gt; Main_Art = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L51">    public static List&lt;Reddit&gt; subArray = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L52">    public static Map&lt;String, Integer&gt; Top_Words = new LinkedHashMap&lt;&gt;();</span>
+
+    @Inject
+<span class="fc" id="L55">    public HomeController(ActorSystem actorSystem, Materializer materializer) {</span>
+<span class="fc" id="L56">        this.materializer = materializer;</span>
+<span class="fc" id="L57">        actorSystem.actorOf(TimeActor.getProps(), &quot;timeActor&quot;);</span>
+<span class="fc" id="L58">        this.actorSystem = actorSystem;</span>
+<span class="fc" id="L59">    }</span>
+
+    /**
+     * @author Kary Sutariya
+     * @param MSearch it is parameter which is being passed from user via url
+     * @return list of reddit search has been returned
+     * @throws IOException exception to handle null msearch (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public Result index(Http.Request req, String MSearch)throws IOException, InterruptedException, ParseException,NullPointerException {
+<span class="nc" id="L70">        Keysearch keysearch  = new Keysearch();</span>
+<span class="nc" id="L71">        cache = keysearch.getSearchResult(MSearch,cache);</span>
+<span class="nc" id="L72">        queryHistory = new ArrayList&lt;&gt;(cache.keySet());</span>
+<span class="nc" id="L73">        return ok(index.render(req,MSearch,cache));</span>
+    }
+
+
+    /**
+     * @author Kary Sutariya
+     * @param search it is parameter which is being passed from profile
+     * @return it returns API Call
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     */
+    public  HttpResponse&lt;String&gt; setprofilemethod(String search) throws IOException, InterruptedException {
+
+<span class="nc" id="L86">        var url = &quot;https://www.reddit.com/user/&quot;+search+&quot;/about.json&quot;;</span>
+<span class="nc" id="L87">        var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();</span>
+<span class="nc" id="L88">        var client = HttpClient.newBuilder().build();</span>
+<span class="nc" id="L89">        var response0= client.send(request, HttpResponse.BodyHandlers.ofString());</span>
+
+<span class="nc" id="L91">        return response0;</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @param search it is parameter which is being passed from user via url
+     * @return search, labels and art have been rendered to profile.scala.html
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public Result profile(Http.Request req,String search) throws  IOException, InterruptedException, ParseException {
+<span class="nc" id="L103">        Pro_Search = search;</span>
+<span class="nc" id="L104">        List&lt;User&gt; labels = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L105">        HttpResponse&lt;String&gt; resultCall1 =setprofilemethod(search);</span>
+<span class="nc" id="L106">        Object obj = new JSONParser().parse(String.valueOf(resultCall1.body()));</span>
+<span class="nc" id="L107">        JSONObject test = (JSONObject) obj;</span>
+<span class="nc" id="L108">        var data = (JSONObject) test.get(&quot;data&quot;);</span>
+<span class="nc" id="L109">        var name =  data.get(&quot;name&quot;);</span>
+<span class="nc" id="L110">        var created_utc =  Double.parseDouble(data.get(&quot;created_utc&quot;).toString());</span>
+<span class="nc" id="L111">        long created_utc_date = (new Double(created_utc)).longValue();</span>
+<span class="nc" id="L112">        var date = new java.text.SimpleDateFormat(&quot;EEEEE dd MMMMM yyyy HH:mm:ss.SSSZ&quot;).format(new java.util.Date (created_utc_date*1000));</span>
+
+<span class="nc" id="L114">        var total_karma =  data.get(&quot;total_karma&quot;);</span>
+<span class="nc" id="L115">        var verified_user =  data.get(&quot;verified&quot;);</span>
+
+<span class="nc" id="L117">        var subreddit_auth =  (JSONObject) data.get(&quot;subreddit&quot;);</span>
+<span class="nc" id="L118">        var subscribers =  subreddit_auth.get(&quot;subscribers&quot;);</span>
+<span class="nc" id="L119">        var user_url = &quot;https://www.reddit.com&quot;+ subreddit_auth.get(&quot;url&quot;).toString();</span>
+<span class="nc" id="L120">        var display_name = subreddit_auth.get(&quot;display_name&quot;);</span>
+
+<span class="nc" id="L122">        labels.add(new User(name.toString(),display_name.toString(),verified_user.toString(),user_url,subscribers.toString(),date,total_karma.toString()));</span>
+<span class="nc" id="L123">        ProfileSearch profileSearch = new ProfileSearch();</span>
+<span class="nc" id="L124">        Main_Art = profileSearch.getUserArticle(search);</span>
+<span class="nc" id="L125">        return ok(profile.render(req, search, labels, Main_Art));</span>
+    }
+
+    /**
+     * @author Bhargav Yagnik
+     * @param subredditId The reddit id of the post to be linked
+     * @return search, labels and art have been rendered to subreddit.scala.html
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public Result searchsubreddit(Http.Request req,String subredditId)  throws IOException, InterruptedException, ParseException{
+<span class="nc" id="L137">        SubredditSearch subredditSearch = new SubredditSearch();</span>
+<span class="nc" id="L138">        subArray  = subredditSearch.getSubredditSearch(subredditId);</span>
+<span class="nc" id="L139">        return ok(subreddit.render(req,subredditId,subArray));</span>
+    }
+    /**
+     * @author Ornela Bregu
+     * @param msearch The search query keywords
+     * @return Top words list and array of word count that have been rendered to stats.scala.html
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public Result wordStats(Http.Request req,String msearch)throws IOException, InterruptedException, ParseException {
+//        String temp = msearch;
+<span class="nc" id="L151">        Map&lt;String, Integer&gt; Words = new LinkedHashMap&lt;&gt;();</span>
+<span class="nc" id="L152">        Map&lt;String, Long&gt; wordCount = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L153">        String[] stopwords = {&quot;before&quot;, &quot;_&quot;, &quot;https&quot;, &quot;reddit&quot;, &quot;must&quot;, &quot;would&quot;, &quot;could&quot;, &quot;around&quot;, &quot;really&quot;, &quot;haven't&quot;, &quot;me&quot;, &quot;need&quot;, &quot;you&quot;, &quot;that&quot;, &quot;do&quot;, &quot;s&quot;, &quot;i&quot;, &quot;how&quot;, &quot;if&quot;, &quot;with&quot;, &quot;having&quot;, &quot;not&quot;, &quot;too&quot;, &quot;being&quot;, &quot;might&quot;, &quot;she's&quot;, &quot;don't&quot;, &quot;about&quot;, &quot;should&quot;, &quot;does&quot;, &quot;is&quot;, &quot;but&quot;, &quot;weren't&quot;, &quot;was&quot;, &quot;couldn't&quot;, &quot;we&quot;, &quot;isn't&quot;, &quot;ain&quot;, &quot;who&quot;, &quot;to&quot;, &quot;after&quot;, &quot;until&quot;, &quot;you'd&quot;, &quot;our&quot;, &quot;aren't&quot;, &quot;those&quot;, &quot;this&quot;, &quot;its&quot;, &quot;yourselves&quot;, &quot;been&quot;, &quot;they&quot;, &quot;what&quot;, &quot;the&quot;, &quot;all&quot;, &quot;hers&quot;, &quot;yours&quot;, &quot;m&quot;, &quot;his&quot;, &quot;it's&quot;, &quot;hasn't&quot;, &quot;himself&quot;, &quot;it&quot;, &quot;did&quot;, &quot;during&quot;, &quot;him&quot;, &quot;her&quot;, &quot;each&quot;, &quot;myself&quot;, &quot;be&quot;, &quot;once&quot;, &quot;y&quot;, &quot;doesn't&quot;, &quot;at&quot;, &quot;such&quot;, &quot;that'll&quot;, &quot;then&quot;, &quot;mightn&quot;, &quot;itself&quot;, &quot;ma&quot;, &quot;of&quot;, &quot;these&quot;, &quot;shan&quot;, &quot;few&quot;, &quot;didn't&quot;, &quot;doesn't&quot;, &quot;whom&quot;, &quot;very&quot;, &quot;you'll&quot;, &quot;should've&quot;, &quot;shouldn't&quot;, &quot;shan't&quot;, &quot;has&quot;, &quot;wouldn&quot;, &quot;d&quot;, &quot;are&quot;, &quot;an&quot;, &quot;am&quot;, &quot;up&quot;, &quot;own&quot;, &quot;aren't&quot;, &quot;some&quot;, &quot;she&quot;, &quot;their&quot;, &quot;off&quot;, &quot;were&quot;, &quot;wouldn't&quot;, &quot;into&quot;, &quot;don't&quot;, &quot;didn't&quot;, &quot;down&quot;, &quot;for&quot;, &quot;ll&quot;, &quot;a&quot;, &quot;yourself&quot;, &quot;only&quot;, &quot;same&quot;, &quot;there&quot;, &quot;theirs&quot;, &quot;he&quot;, &quot;below&quot;, &quot;most&quot;, &quot;haven't&quot;, &quot;isn't&quot;, &quot;than&quot;, &quot;them&quot;, &quot;mustn't&quot;, &quot;in&quot;, &quot;hadn&quot;, &quot;against&quot;, &quot;by&quot;, &quot;ourselves&quot;, &quot;now&quot;, &quot;wasn&quot;, &quot;when&quot;, &quot;themselves&quot;, &quot;will&quot;, &quot;ours&quot;, &quot;had&quot;, &quot;any&quot;, &quot;ve&quot;, &quot;above&quot;, &quot;which&quot;, &quot;why&quot;, &quot;wasn't&quot;, &quot;won&quot;, &quot;o&quot;, &quot;through&quot;, &quot;on&quot;, &quot;your&quot;, &quot;herself&quot;, &quot;re&quot;, &quot;have&quot;, &quot;and&quot;, &quot;can&quot;, &quot;doing&quot;, &quot;you're&quot;, &quot;so&quot;, &quot;between&quot;, &quot;no&quot;, &quot;both&quot;, &quot;from&quot;, &quot;out&quot;, &quot;more&quot;, &quot;as&quot;, &quot;weren't&quot;, &quot;over&quot;, &quot;here&quot;, &quot;just&quot;, &quot;or&quot;, &quot;hadn't&quot;, &quot;needn't'&quot;, &quot;where&quot;, &quot;you've&quot;, &quot;shouldn't&quot;, &quot;other&quot;, &quot;again&quot;, &quot;because&quot;, &quot;further&quot;, &quot;my&quot;, &quot;hasn't&quot;, &quot;nor&quot;, &quot;t&quot;, &quot;under&quot;, &quot;couldn't&quot;, &quot;won't&quot;, &quot;while&quot;};</span>
+<span class="nc bnc" id="L154" title="All 4 branches missed.">        if (msearch == (null) || msearch.equals(&quot;&quot;)) {</span>
+            /*TODO*/
+        } else {
+<span class="nc" id="L157">            String msearch1 = msearch.replace(&quot; &quot;, &quot;%20&quot;);</span>
+<span class="nc" id="L158">            var url = &quot;https://api.pushshift.io/reddit/search/submission/?q=&quot;+msearch+&quot;&amp;sort=desc&amp;size=200&quot;;</span>
+<span class="nc" id="L159">            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();</span>
+<span class="nc" id="L160">            var client = HttpClient.newBuilder().build();</span>
+<span class="nc" id="L161">            HttpResponse&lt;String&gt; resp = client.send(request, HttpResponse.BodyHandlers.ofString());</span>
+
+<span class="nc" id="L163">            Object obj = new JSONParser().parse(String.valueOf(resp.body()));</span>
+//            String url = &quot;https://api.pushshift.io/reddit/search/submission/?q=&quot; + msearch1 + &quot;&amp;sort=desc&amp;size=100&quot;;
+//            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
+//            var client = HttpClient.newBuilder().build();
+//            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//            Object obj = new JSONParser().parse(String.valueOf(response.body()));
+<span class="nc" id="L169">            JSONObject test = (JSONObject) obj;</span>
+<span class="nc" id="L170">            var data = (JSONArray) test.get(&quot;data&quot;);</span>
+<span class="nc" id="L171">            var length = data.size();</span>
+<span class="nc" id="L172">            System.out.println(data.size());</span>
+<span class="nc" id="L173">            String s = new String();</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">            for (int i = 0; i &lt; length; i++) {</span>
+<span class="nc" id="L175">                var topic = (JSONObject) data.get(i);</span>
+<span class="nc" id="L176">                var selftext = topic.get(&quot;selftext&quot;);</span>
+<span class="nc" id="L177">                s = s + selftext.toString();</span>
+            }
+<span class="nc bnc" id="L179" title="All 2 branches missed.">            for (String word : stopwords) {</span>
+<span class="nc" id="L180">                s = s.replaceAll(&quot;\\b&quot; + word + &quot;\\b&quot;, &quot; &quot;);</span>
+<span class="nc" id="L181">                s = s.replaceAll(&quot;\\b\\w{1,4}\\b\\s?&quot;, &quot;&quot;);</span>
+<span class="nc" id="L182">                s = s.replaceAll(&quot;\\b\\w{9,100}\\b\\s?&quot;, &quot;&quot;);</span>
+            }
+
+
+
+
+            /*s=s.replaceAll(&quot;[^A-Z]&quot;,&quot; &quot;);*/
+            try {
+<span class="nc" id="L190">                wordCount = Pattern.compile(&quot;\\W+&quot;).splitAsStream((String) s).parallel().map(String::toLowerCase).collect(groupingByConcurrent(identity(), counting()));</span>
+//                System.out.println(&quot;Words found&quot; + wordCount);
+//                Pattern.compile(&quot;\\W+&quot;).splitAsStream((String) s).parallel().map(String::toLowerCase).collect(collectingAndThen(groupingByConcurrent(identity(), counting()), map -&gt; map.entrySet().stream().sorted(Map.Entry.comparingByValue(reverseOrder())).limit(20))).forEachOrdered(System.out::println);
+
+
+
+<span class="nc" id="L196">                wordCount.entrySet().stream()</span>
+<span class="nc" id="L197">                        .sorted(Map.Entry.comparingByValue(reverseOrder())).limit(20)</span>
+<span class="nc" id="L198">                        .forEachOrdered(x -&gt; Words.put(x.getKey(), Math.toIntExact(x.getValue())));</span>
+//                for (int j = 0; j &lt; 10; j++) {
+<span class="nc" id="L200">                System.out.println(&quot;*********&quot; + Words.values());</span>
+<span class="nc" id="L201">                System.out.println(&quot;*********&quot; + Words);</span>
+
+//            }
+<span class="nc" id="L204">            } catch (Exception e) {</span>
+<span class="nc" id="L205">                e.printStackTrace();</span>
+<span class="nc" id="L206">            }</span>
+        }
+<span class="nc" id="L208">        Top_Words=Words;</span>
+<span class="nc" id="L209">        return ok(stats.render(req,Words, wordCount));</span>
+    }
+
+    public WebSocket ws() {
+<span class="nc" id="L213">        return WebSocket.Json.accept((request) -&gt; ActorFlow.actorRef(req -&gt; UserActor.props(req, cache), actorSystem, materializer));</span>
+    }
+
+    public WebSocket ws2() {
+<span class="nc" id="L217">        return WebSocket.Json.accept((request) -&gt; ActorFlow.actorRef(req -&gt; ProfileActor.props(req,Main_Art), actorSystem, materializer));</span>
+    }
+    public WebSocket ws3() {
+<span class="nc" id="L220">        return WebSocket.Json.accept((request) -&gt; ActorFlow.actorRef(req -&gt; SubredditActor.props(req,subArray), actorSystem, materializer));</span>
+    }
+    public WebSocket ws4() {
+<span class="nc" id="L223">        return WebSocket.Json.accept((request) -&gt; ActorFlow.actorRef(req -&gt; StatsActor.props(req,Top_Words), actorSystem, materializer));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

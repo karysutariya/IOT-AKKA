@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SubredditSearch.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">Models</a> &gt; <span class="el_source">SubredditSearch.java</span></div><h1>SubredditSearch.java</h1><pre class="source lang-java linenums">package Models;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L16">public class SubredditSearch {</span>
+    /**
+     * @author Kary Sutariya
+     * @param subredditId is string of reddit
+     * @return list of reddit array which contains info author, body and subreddit
+     * @throws IOException
+     * @throws InterruptedException
+     * @throws ParseException
+     */
+    public List&lt;Reddit&gt; getSubredditSearch(String subredditId) throws IOException, InterruptedException, ParseException {
+<span class="fc" id="L26">        List&lt;Reddit&gt; subArray = new ArrayList&lt;&gt;();</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if(subredditId == &quot;&quot;)</span>
+<span class="nc" id="L28">            subredditId = null;</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if(subredditId == null)</span>
+        {
+<span class="nc" id="L31">            subArray.add(new Reddit(null,null,null));</span>
+        }
+        else
+        {
+<span class="fc" id="L35">            String url = &quot;https://api.pushshift.io/reddit/search/comment/?subreddit=&quot;+subredditId+&quot;&amp;sort=desc&amp;size=10&quot;;</span>
+<span class="fc" id="L36">            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();</span>
+<span class="fc" id="L37">            var client = HttpClient.newBuilder().build();</span>
+<span class="fc" id="L38">            var response= client.send(request, HttpResponse.BodyHandlers.ofString());</span>
+<span class="fc" id="L39">            Object obj = new JSONParser().parse(String.valueOf(response.body()));</span>
+<span class="fc" id="L40">            JSONObject test = (JSONObject) obj;</span>
+<span class="fc" id="L41">            var data = (JSONArray)test.get(&quot;data&quot;);</span>
+            try {
+<span class="fc bfc" id="L43" title="All 2 branches covered.">                for (int j = 0; j &lt; 10; j++) {</span>
+<span class="fc" id="L44">                    var inner_post_data = (JSONObject) data.get(j);</span>
+<span class="fc" id="L45">                    var author = inner_post_data.get(&quot;author&quot;);</span>
+<span class="fc" id="L46">                    var title = inner_post_data.get(&quot;body&quot;);</span>
+<span class="fc" id="L47">                    var subreddit = inner_post_data.get(&quot;subreddit&quot;);</span>
+<span class="fc" id="L48">                    subArray.add(new Reddit(author.toString(), title.toString(), subreddit.toString()));</span>
+                }
+            }
+<span class="nc" id="L51">            catch(Exception e)</span>
+            {
+<span class="nc" id="L53">                e.printStackTrace();</span>
+<span class="fc" id="L54">            }</span>
+        }
+<span class="fc" id="L56">        return subArray;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,12 @@
+[0m[[0m[0minfo[0m] [0m[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m------- Jacoco Coverage Report -------[0m
+[0m[[0m[0minfo[0m] [0m[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mLines: 52.05% (>= required 0.0%) covered, 315 of 657 missed, OK[0m
+[0m[[0m[0minfo[0m] [0m[0mInstructions: 42.37% (>= required 0.0%) covered, 3593 of 6235 missed, OK[0m
+[0m[[0m[0minfo[0m] [0m[0mBranches: 21.3% (>= required 0.0%) covered, 170 of 216 missed, OK[0m
+[0m[[0m[0minfo[0m] [0m[0mMethods: 40.29% (>= required 0.0%) covered, 163 of 273 missed, OK[0m
+[0m[[0m[0minfo[0m] [0m[0mComplexity: 31.23% (>= required 0.0%) covered, 262 of 381 missed, OK[0m
+[0m[[0m[0minfo[0m] [0m[0mClass: 83.33% (>= required 0.0%) covered, 7 of 42 missed, OK[0m
+[0m[[0m[0minfo[0m] [0m[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mCheck E:\Concordia\SOEN 6441\Project\FINAL\RedditLytics with akka\target\scala-2.13\jacoco\report for detailed report[0m
+[0m[[0m[0minfo[0m] [0m[0m [0m

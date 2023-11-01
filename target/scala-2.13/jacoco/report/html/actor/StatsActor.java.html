@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatsActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actor</a> &gt; <span class="el_source">StatsActor.java</span></div><h1>StatsActor.java</h1><pre class="source lang-java linenums">package actor;
+
+import Models.Article;
+import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import play.libs.Json;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+public class StatsActor extends AbstractActor {
+    private final ActorRef ws;
+    public static Map&lt;String, Integer&gt; Top_Words;
+
+    /**
+     * @author ornela
+     * @param wsOut is actrofRef
+     * @param Top_Words is map of top word
+     */
+<span class="fc" id="L25">    public StatsActor(final ActorRef wsOut, final Map&lt;String, Integer&gt; Top_Words) {</span>
+<span class="fc" id="L26">        this.ws =  wsOut;</span>
+<span class="fc" id="L27">        this.Top_Words = Top_Words;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * @author ornela
+     * @param wsOut is actrofRef
+     * @param Top_Words is map of top word
+     * @return StatsActor
+     */
+    public static Props props(final ActorRef wsOut,  final Map&lt;String, Integer&gt; Top_Words) {
+<span class="fc" id="L37">        return Props.create(StatsActor.class, wsOut, Top_Words);</span>
+    }
+
+    /**
+     * @author ornela
+     * @param msg is instance of TimeMessage class
+     */
+    private void sendTime(TimeMessage msg) {
+<span class="nc" id="L45">        final ObjectNode response = Json.newObject();</span>
+<span class="nc" id="L46">        System.out.println(&quot;Stats Actor called&quot;);</span>
+<span class="nc" id="L47">        response.put(&quot;time&quot;, String.valueOf(Top_Words));</span>
+<span class="nc" id="L48">        ws.tell(response, self());</span>
+<span class="nc" id="L49">    }</span>
+
+    public static class TimeMessage {
+        public final Map&lt;String, Integer&gt; message;
+<span class="nc" id="L53">        public TimeMessage() {</span>
+<span class="nc" id="L54">            message = Top_Words;</span>
+<span class="nc" id="L55">        }</span>
+    }
+
+    @Override
+    public void preStart() {
+<span class="fc" id="L60">        context().actorSelection(&quot;/user/timeActor/&quot;)</span>
+<span class="fc" id="L61">                .tell(new TimeActor.RegisterMsg_stats(), self());</span>
+<span class="fc" id="L62">    }</span>
+
+    @Override
+    public Receive createReceive() {
+<span class="fc" id="L66">        return receiveBuilder()</span>
+<span class="fc" id="L67">                .match(TimeMessage.class, this::sendTime)</span>
+<span class="fc" id="L68">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

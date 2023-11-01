@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>index.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">index.template.scala</span></div><h1>index.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+/*1.2*/import java.util
+
+<span class="pc" id="L25">object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[play.mvc.Http.Request,String,HashMap[String, util.ArrayList[Models.Reddit]],play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*2.2*/(request: play.mvc.Http.Request, MSearch: String, Reds: HashMap[String,util.ArrayList[Models.Reddit]]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L29">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L33">Seq[Any](format.raw/*3.1*/(&quot;&quot;&quot;&lt;html&gt;</span>
+&lt;head&gt;
+    &lt;title&gt;Search&lt;/title&gt;
+<span class="fc" id="L36">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href='&quot;&quot;&quot;),_display_(/*6.51*/routes/*6.57*/.Assets.versioned(&quot;stylesheets/bootstrap.min.css&quot;)),format.raw/*6.107*/(&quot;&quot;&quot;' /&gt;</span>
+<span class="fc" id="L37">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href='&quot;&quot;&quot;),_display_(/*7.51*/routes/*7.57*/.Assets.versioned(&quot;stylesheets/style.css&quot;)),format.raw/*7.99*/(&quot;&quot;&quot;' /&gt;</span>
+<span class="fc" id="L38">    &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*8.42*/routes/*8.48*/.Assets.versioned(&quot;js/jquery-3.6.0.min.js&quot;)),format.raw/*8.91*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+<span class="fc" id="L39">    &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*9.42*/routes/*9.48*/.Assets.versioned(&quot;js/custom.js&quot;)),format.raw/*9.81*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+    &lt;script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'&gt;&lt;/script&gt;
+<span class="fc" id="L41">    &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*11.42*/routes/*11.48*/.Assets.versioned(&quot;javascripts/index.js&quot;)),format.raw/*11.89*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+&lt;/head&gt;
+<span class="fc" id="L43">&lt;body data-ws-url=&quot;&quot;&quot;&quot;),_display_(/*13.21*/routes/*13.27*/.HomeController.ws.webSocketURL(request)),format.raw/*13.67*/(&quot;&quot;&quot;&quot;&gt;</span>
+    &lt;h2 style=&quot;text-align:center&quot;&gt;Welcome to RedditLytics&lt;/h2&gt;
+    &lt;div style=&quot;margin-top:3%&quot;&gt;&lt;/div&gt;
+    &lt;form  class=&quot;example&quot; action=&quot;/&quot; method=&quot;GET&quot; style=&quot;margin:auto;max-width:300px&quot;&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;Search........&quot; name=&quot;msearch&quot;&gt;
+        &lt;button type=&quot;submit&quot;&gt;click&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+
+    &lt;div id=&quot;time&quot;&gt; &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;&quot;&quot;&quot;))
+      }
+    }
+  }
+
+<span class="fc" id="L61">  def render(request:play.mvc.Http.Request,MSearch:String,Reds:HashMap[String, util.ArrayList[Models.Reddit]]): play.twirl.api.HtmlFormat.Appendable = apply(request,MSearch,Reds)</span>
+
+<span class="nc" id="L63">  def f:((play.mvc.Http.Request,String,HashMap[String, util.ArrayList[Models.Reddit]]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (request,MSearch,Reds) =&gt; apply(request,MSearch,Reds)</span>
+
+<span class="nc" id="L65">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/index.scala.html
+                  HASH: 56413f89dccf4b577769d67265e9f2b9fe678891
+                  MATRIX: 610-&gt;1|1000-&gt;19|1196-&gt;122|1312-&gt;212|1326-&gt;218|1397-&gt;268|1478-&gt;323|1492-&gt;329|1554-&gt;371|1626-&gt;417|1640-&gt;423|1703-&gt;466|1782-&gt;519|1796-&gt;525|1849-&gt;558|2024-&gt;706|2039-&gt;712|2101-&gt;753|2168-&gt;793|2183-&gt;799|2244-&gt;839
+                  LINES: 23-&gt;1|28-&gt;2|33-&gt;3|36-&gt;6|36-&gt;6|36-&gt;6|37-&gt;7|37-&gt;7|37-&gt;7|38-&gt;8|38-&gt;8|38-&gt;8|39-&gt;9|39-&gt;9|39-&gt;9|41-&gt;11|41-&gt;11|41-&gt;11|43-&gt;13|43-&gt;13|43-&gt;13
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

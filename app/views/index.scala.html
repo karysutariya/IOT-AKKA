@@ -1,0 +1,26 @@
+@import java.util
+@(request: play.mvc.Http.Request, MSearch: String, Reds: HashMap[String,util.ArrayList[Models.Reddit]])
+<html>
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/bootstrap.min.css")' />
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("stylesheets/style.css")' />
+    <script type='text/javascript' src='@routes.Assets.versioned("js/jquery-3.6.0.min.js")'></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("js/custom.js")'></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/index.js")'></script>
+</head>
+<body data-ws-url="@routes.HomeController.ws.webSocketURL(request)">
+    <h2 style="text-align:center">Welcome to RedditLytics</h2>
+    <div style="margin-top:3%"></div>
+    <form  class="example" action="/" method="GET" style="margin:auto;max-width:300px">
+        <input type="text" placeholder="Search........" name="msearch">
+        <button type="submit">click</button>
+    </form>
+    <br>
+    <br>
+
+    <div id="time"> </div>
+
+</body>
+</html>

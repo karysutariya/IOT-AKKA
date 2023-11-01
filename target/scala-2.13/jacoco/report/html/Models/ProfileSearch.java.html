@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProfileSearch.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">Models</a> &gt; <span class="el_source">ProfileSearch.java</span></div><h1>ProfileSearch.java</h1><pre class="source lang-java linenums">package Models;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L16">public class ProfileSearch {</span>
+
+    /**
+     * @author Kary Sutariya
+     * @param search it is parameter which is being passed from profile
+     * @return it returns response of API call
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public HttpResponse&lt;String&gt; setpostmethod(String search) throws IOException, InterruptedException, ParseException {
+
+<span class="fc" id="L28">        var url1 = &quot;https://www.reddit.com/user/&quot;+search+&quot;/submitted/about.json&quot;;</span>
+<span class="fc" id="L29">        var request1 = HttpRequest.newBuilder().GET().uri(URI.create(url1)).build();</span>
+<span class="fc" id="L30">        var client1 = HttpClient.newBuilder().build();</span>
+<span class="fc" id="L31">        var response1= client1.send(request1, HttpResponse.BodyHandlers.ofString());</span>
+<span class="fc" id="L32">        return response1;</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @param search it is parameter which is being passed from profile
+     * @return it returns articles
+     * @throws IOException exception to handle null search (input)
+     * @throws InterruptedException exception to handle interruption
+     * @throws ParseException exception to handle json parsing related exception
+     */
+    public List&lt;Article&gt; getUserArticle(String search) throws InterruptedException, ParseException, IOException {
+
+<span class="fc" id="L45">        HttpResponse&lt;String&gt; resultCall2 = setpostmethod(search);</span>
+<span class="fc" id="L46">        List&lt;Article&gt; Art = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L47">        Object obj1 = new JSONParser().parse(String.valueOf(resultCall2.body()));</span>
+<span class="fc" id="L48">        JSONObject test1 = (JSONObject) obj1;</span>
+<span class="fc" id="L49">        var post_data = (JSONObject) test1.get(&quot;data&quot;);</span>
+<span class="fc" id="L50">        var children = (JSONArray) post_data.get(&quot;children&quot;);</span>
+<span class="fc" id="L51">        int limit= children.size()-1;</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if(limit&gt;=10)</span>
+        {
+<span class="fc" id="L54">            limit=10;</span>
+        }
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for(int i =0; i&lt;limit; i++){</span>
+<span class="fc" id="L57">            var inner_post_data = (JSONObject) children.get(i);</span>
+<span class="fc" id="L58">            var real_data = (JSONObject) inner_post_data.get(&quot;data&quot;);</span>
+<span class="fc" id="L59">            var title = real_data.get(&quot;title&quot;).toString();</span>
+<span class="fc" id="L60">            var selftext = real_data.get(&quot;selftext&quot;).toString();</span>
+<span class="fc" id="L61">            var subreddit = real_data.get(&quot;subreddit&quot;).toString();</span>
+<span class="fc" id="L62">            var post_created = Double.parseDouble(real_data.get(&quot;created_utc&quot;).toString());</span>
+<span class="fc" id="L63">            long post_created_date = (new Double(post_created)).longValue();</span>
+<span class="fc" id="L64">            var post_date = new java.text.SimpleDateFormat(&quot;EEEEE dd MMMMM yyyy HH:mm:ss.SSSZ&quot;).format(new java.util.Date (post_created_date*1000));</span>
+<span class="fc" id="L65">            Art.add(new Article(title,selftext,subreddit,post_date));</span>
+        }
+<span class="fc" id="L67">        return Art;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>subreddit.template.scala</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">views.html</a> &gt; <span class="el_source">subreddit.template.scala</span></div><h1>subreddit.template.scala</h1><pre class="source lang-java linenums">
+package views.html
+
+import _root_.play.twirl.api.TwirlFeatureImports._
+import _root_.play.twirl.api.TwirlHelperImports._
+import _root_.play.twirl.api.Html
+import _root_.play.twirl.api.JavaScript
+import _root_.play.twirl.api.Txt
+import _root_.play.twirl.api.Xml
+import models._
+import controllers._
+import play.api.i18n._
+import views.html._
+import play.api.templates.PlayMagic._
+import java.lang._
+import java.util._
+import play.core.j.PlayMagicForJava._
+import play.mvc._
+import play.api.data.Field
+import play.data._
+import play.core.j.PlayFormsMagicForJava._
+import scala.jdk.CollectionConverters._
+
+<span class="pc" id="L24">object subreddit extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[play.mvc.Http.Request,String,List[Models.Reddit],play.twirl.api.HtmlFormat.Appendable] {</span>
+
+  /**/
+  def apply/*1.2*/(request: play.mvc.Http.Request,subname:String,Reds: List[Models.Reddit]):play.twirl.api.HtmlFormat.Appendable = {
+<span class="fc" id="L28">    _display_ {</span>
+      {
+
+
+<span class="fc" id="L32">Seq[Any](format.raw/*2.1*/(&quot;&quot;&quot;&lt;html lang=&quot;en&quot;&gt;</span>
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Search&lt;/title&gt;
+<span class="fc" id="L36">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href='&quot;&quot;&quot;),_display_(/*6.51*/routes/*6.57*/.Assets.versioned(&quot;stylesheets/bootstrap.min.css&quot;)),format.raw/*6.107*/(&quot;&quot;&quot;' /&gt;</span>
+<span class="fc" id="L37">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href='&quot;&quot;&quot;),_display_(/*7.51*/routes/*7.57*/.Assets.versioned(&quot;stylesheets/style.css&quot;)),format.raw/*7.99*/(&quot;&quot;&quot;' /&gt;</span>
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css&quot;&gt;
+<span class="fc" id="L39">    &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*9.42*/routes/*9.48*/.Assets.versioned(&quot;js/jquery-3.6.0.min.js&quot;)),format.raw/*9.91*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+<span class="fc" id="L40">    &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*10.42*/routes/*10.48*/.Assets.versioned(&quot;js/custom.js&quot;)),format.raw/*10.81*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+    &lt;script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'&gt;&lt;/script&gt;
+<span class="fc" id="L42">    &lt;script type='text/javascript' src='&quot;&quot;&quot;),_display_(/*12.42*/routes/*12.48*/.Assets.versioned(&quot;javascripts/subreddit.js&quot;)),format.raw/*12.93*/(&quot;&quot;&quot;'&gt;&lt;/script&gt;</span>
+&lt;/head&gt;
+
+<span class="fc" id="L45">&lt;body  data-ws-url=&quot;&quot;&quot;&quot;),_display_(/*15.22*/routes/*15.28*/.HomeController.ws3.webSocketURL(request)),format.raw/*15.69*/(&quot;&quot;&quot;&quot;&gt;</span>
+&lt;h2 style=&quot;text-align:center&quot;&gt;Welcome to RedditLytics&lt;/h2&gt;
+&lt;div style=&quot;margin-top:3%&quot;&gt;&lt;/div&gt;
+&lt;form class=&quot;example&quot; action=&quot;/&quot; method=&quot;GET&quot; style=&quot;margin:auto;max-width:300px&quot;&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Search..&quot; name=&quot;search&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;&lt;i class=&quot;fa fa-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;/form&gt;
+&lt;br&gt;
+
+<span class="fc" id="L54">&lt;h2 style=&quot;text-align:left; margin-left:20%;&quot;&gt;&quot;&quot;&quot;),_display_(/*24.48*/subname),format.raw/*24.55*/(&quot;&quot;&quot;&lt;/h2&gt;</span>
+    &lt;div id=&quot;time&quot;&gt; &lt;/div&gt;
+    &lt;br&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;&quot;&quot;&quot;))
+      }
+    }
+  }
+
+<span class="fc" id="L64">  def render(request:play.mvc.Http.Request,subname:String,Reds:List[Models.Reddit]): play.twirl.api.HtmlFormat.Appendable = apply(request,subname,Reds)</span>
+
+<span class="nc" id="L66">  def f:((play.mvc.Http.Request,String,List[Models.Reddit]) =&gt; play.twirl.api.HtmlFormat.Appendable) = (request,subname,Reds) =&gt; apply(request,subname,Reds)</span>
+
+<span class="nc" id="L68">  def ref: this.type = this</span>
+
+}
+
+
+              /*
+                  -- GENERATED --
+                  SOURCE: app/views/subreddit.scala.html
+                  HASH: a5702aba3bd381078516390b3b8c56246f02140e
+                  MATRIX: 953-&gt;1|1120-&gt;75|1273-&gt;202|1287-&gt;208|1358-&gt;258|1439-&gt;313|1453-&gt;319|1515-&gt;361|1705-&gt;525|1719-&gt;531|1782-&gt;574|1862-&gt;627|1877-&gt;633|1931-&gt;666|2106-&gt;814|2121-&gt;820|2187-&gt;865|2256-&gt;907|2271-&gt;913|2333-&gt;954|2725-&gt;1319|2753-&gt;1326
+                  LINES: 27-&gt;1|32-&gt;2|36-&gt;6|36-&gt;6|36-&gt;6|37-&gt;7|37-&gt;7|37-&gt;7|39-&gt;9|39-&gt;9|39-&gt;9|40-&gt;10|40-&gt;10|40-&gt;10|42-&gt;12|42-&gt;12|42-&gt;12|45-&gt;15|45-&gt;15|45-&gt;15|54-&gt;24|54-&gt;24
+                  -- GENERATED --
+              */
+          
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

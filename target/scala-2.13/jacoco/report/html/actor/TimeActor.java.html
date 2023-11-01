@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TimeActor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=2;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Jacoco Coverage Report</a> &gt; <a href="index.source.html" class="el_package">actor</a> &gt; <span class="el_source">TimeActor.java</span></div><h1>TimeActor.java</h1><pre class="source lang-java linenums">package actor;
+
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import akka.actor.AbstractActorWithTimers;
+import scala.concurrent.duration.Duration;
+
+public class TimeActor extends AbstractActorWithTimers {
+
+    private Set&lt;ActorRef&gt; userActors;
+    private Set&lt;ActorRef&gt; profileActors;
+    private Set&lt;ActorRef&gt; subredditActors;
+    private Set&lt;ActorRef&gt; statsActors;
+
+    private static final class Tick {
+    }
+
+<span class="fc" id="L24">    static public class RegisterMsg {</span>
+    }
+
+<span class="fc" id="L27">    static public class RegisterMsg_pro {</span>
+    }
+<span class="fc" id="L29">    static public class RegisterMsg_sub {</span>
+    }
+<span class="fc" id="L31">    static public class RegisterMsg_stats {</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * @return TimeActor
+     */
+    static public Props getProps() {
+<span class="fc" id="L39">        return Props.create(TimeActor.class, () -&gt; new TimeActor());</span>
+    }
+
+<span class="fc" id="L42">    private TimeActor(){</span>
+<span class="fc" id="L43">        this.userActors = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L44">        this.profileActors = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L45">        this.subredditActors  = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L46">        this.statsActors  = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L47">    }</span>
+
+    @Override
+    public void preStart() {
+<span class="fc" id="L51">        getTimers().startPeriodicTimer(&quot;Timer&quot;, new Tick(), Duration.create(1, TimeUnit.SECONDS));</span>
+<span class="fc" id="L52">    }</span>
+
+    @Override
+    public AbstractActor.Receive createReceive() {
+<span class="fc" id="L56">        return receiveBuilder()</span>
+<span class="fc" id="L57">                .match(RegisterMsg.class, msg -&gt; userActors.add(sender()))</span>
+<span class="fc" id="L58">                .match(RegisterMsg_pro.class, msg -&gt; profileActors.add(sender()))</span>
+<span class="fc" id="L59">                .match(RegisterMsg_sub.class, msg -&gt; subredditActors.add(sender()))</span>
+<span class="fc" id="L60">                .match(RegisterMsg_stats.class,msg-&gt; statsActors.add(sender()))</span>
+<span class="fc" id="L61">                .match(Tick.class, msg -&gt; notifyClients())</span>
+//                .match(Tick_pro.class, msg -&gt; notifyClients_pro())
+<span class="fc" id="L63">                .build();</span>
+    }
+
+    /**
+     * @author Kary Sutariya
+     * this function is sending message to all other actor at each 5 seconds.
+     */
+    private void notifyClients() {
+<span class="nc" id="L71">        UserActor.TimeMessage tMsg = new UserActor.TimeMessage();</span>
+<span class="nc" id="L72">        userActors.forEach(ar -&gt; ar.tell(tMsg, self()));</span>
+<span class="nc" id="L73">        ProfileActor.TimeMessage tMsg1 = new ProfileActor.TimeMessage();</span>
+<span class="nc" id="L74">        profileActors.forEach(ar -&gt; ar.tell(tMsg1, self()));</span>
+<span class="nc" id="L75">        SubredditActor.TimeMessage tMsg2 = new SubredditActor.TimeMessage();</span>
+<span class="nc" id="L76">        subredditActors.forEach(ar -&gt; ar.tell(tMsg2, self()));</span>
+<span class="nc" id="L77">        StatsActor.TimeMessage tMsg3 = new StatsActor.TimeMessage();</span>
+<span class="nc" id="L78">        statsActors.forEach(ar -&gt; ar.tell(tMsg3,self()));</span>
+<span class="nc" id="L79">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
